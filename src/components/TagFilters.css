@@ -1,0 +1,35 @@
+.styled-select {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.styled-select h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.styled-select select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  color: #333;
+  background-color: #f9f9f9;
+  box-shadow: 02px 4px rgba (0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.styled-select select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba (0, 123, 255, 0.5);
+}
+
+.styled-select option {
+  padding: 8px;
+  background-color: #fff;
+  color: #333;
+  font-size: 1em;
+}

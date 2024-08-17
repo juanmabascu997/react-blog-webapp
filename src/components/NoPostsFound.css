@@ -1,0 +1,13 @@
+.no-posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.no-posts-container h1 {
+  font-size: 24px;
+  color: #555;
+}

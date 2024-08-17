@@ -1,19 +1,25 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import PostList from '../components/PostList';
+import { useState, useEffect, Suspense } from 'react';
+import { fetchLoginUser, fetchTags } from '../services/api';
+import TagFilterButton from '../components/TagFilterButton';
 
 function Home() {
   const [tags, setTags] = useState([]);
   const [selectedTag, setSelectedTag] = useState('');
 
   useEffect(() => {
-    axios.get('https://dummyapi.io/data/v1/tag')
-      .then(response => setTags(response.data.data))
+    fetchLoginUser();
+    fetchTags()
+      .then(response => setTags(response))
       .catch(error => console.error(error));
   }, []);
 
   return (
     <div>
-      <p>Home</p>
+      <TagFilterButton tags={tags} selectedTag={selectedTag} onSelectTag={setSelectedTag} />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <PostList selectedTag={selectedTag} />
+      </Suspense>
     </div>
   );
 }
