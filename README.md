@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Blog Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripcion
 
-## Available Scripts
+Este es un proyecto de aplicación de blog que permite a los usuarios ver publicaciones, filtrar publicaciones por etiquetas, y autenticar usuarios utilizando Google Sign-In. La aplicación muestra una lista de publicaciones con imágenes, títulos, autores y etiquetas. Los usuarios pueden ver los detalles de cada publicación, incluidos los comentarios, y también pueden gestionar su sesión mediante Google.
 
-In the project directory, you can run:
+## Tecnologías Utilizadas-**React 18**: Biblioteca para construir la interfaz de usuario.
 
-### `npm start`
+-**React Router DOM**: Enrutamiento para aplicaciones React.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-**Axios**: Cliente HTTP para realizar solicitudes a la API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-**CSS Grid**: Diseño de cuadrícula para la disposición de elementos.
 
-### `npm test`
+-**Google Identity Services**: Autenticación con Google.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-**Auth0**: Autenticación de usuarios.
 
-### `npm run build`
+-**Pexels API**: Para obtener imágenes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requisitos- Node.js (versión 20.16 o superior)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- npm (gestor de paquetes de Node.js)
+- Una cuenta de Google y credenciales de API para Google Sign-In.
+- Claves API de Pexels para obtener imágenes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instalación1.**Clona el repositorio:**
 
-### `npm run eject`
+```bash
+   git clone https://github.com/juanmabascu997/react-blog-webapp
+   cd tu-repositorio
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.**Instala las dependencias:**  
+ `bash
+    npm install --legacy-peer-deps
+    `
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.**Configura las variables de entorno:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Crea un archivo `.env` en la raíz del proyecto y añade tus variables de entorno:
+`env
+    REACT_APP_GOOGLE_CLIENT_ID=tu_cliente_id_de_google
+    REACT_APP_PEXELS_API_KEY=tu_clave_de_api_de_pexels
+    API_URL=la_url_de_tu_api`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4.**Inicia el servidor de desarrollo:**  
+ `bash
+    npm start
+    `
 
-## Learn More
+## Uso
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1.**Visita la aplicación en tu navegador:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación en funcionamiento.
 
-### Code Splitting
+2.**Autenticación:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Usa el botón "Login with Google" para autenticarte. Una vez autenticado, el botón de inicio de sesión se reemplaza por un botón de cierre de sesión.
 
-### Analyzing the Bundle Size
+3.**Navegación:**  
+ -**Inicio:** Muestra la lista de publicaciones con una vista previa. -**Detalles de la publicación:** Haz clic en una publicación para ver los detalles completos y los comentarios. -**Usuarios:** Consulta la lista de usuarios. -**Filtrado por etiqueta:** Usa el botón de filtro de etiquetas para seleccionar múltiples etiquetas y filtrar las publicaciones en la vista principal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Estructura del Proyecto
+-**src/** 
+-**components/**: Componentes reutilizables como `Navbar`, `PostItem`, `PostDetail`, etc.
 
-### Making a Progressive Web App
+-**pages/**: Páginas principales de la aplicación como `Home`, `PostPage`, `UserList`, etc. 
+-**services/**: Servicios para manejar solicitudes API, como `api.js`. 
+-**styles/**: Archivos CSS para estilos globales y específicos. 
+-**App.js**: Componente principal que define las rutas y estructura de la aplicación. 
+-**index.js**: Punto de entrada de la aplicación React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-**public/** 
+-**index.html**: Archivo HTML principal.
 
-### Advanced Configuration
+## Enlaces Útiles- [Google Identity Services](https://developers.google.com/identity)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Pexels API](https://www.pexels.com/api/)
+- [Auth0](https://auth0.com/)
