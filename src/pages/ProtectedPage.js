@@ -1,18 +1,19 @@
-import { Navigate } from 'react-router-dom';
 import UserList from '../components/UserList';
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function ProtectedPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = localStorage.getItem('user');
-    if(user) setIsAuthenticated(true)
+    if(user){
+     setIsAuthenticated(true)
+    } else {
+      navigate('/')
+    }
   }, []);
-
-  if (!isAuthenticated) {
-    return <Navigate to="/" replace />;
-  }
 
   return (
     <div>

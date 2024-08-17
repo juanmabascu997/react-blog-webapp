@@ -1,24 +1,29 @@
-import { useEffect, useState } from 'react';
-import { fetchUsers } from '../services/api';
+import { useEffect, useState } from "react";
+import { fetchUsers } from "../services/api";
+import "./UserList.css";
 
 function UserList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetchUsers()
-      .then(response => setUsers(response.data.data))
-      .catch(error => console.error(error));
+      .then((response) => setUsers(response.users))
+      .catch((error) => console.error(error));
   }, []);
 
   return (
-    <div className="user-list">
+    <div className="post-detail">
       <h3>User List</h3>
-      {users.map(user => (
-        <div key={user.id} className="user-item">
-          <img src={user.img} alt={user.firstName} />
-          <p>{user.firstName} {user.lastName}</p>
-        </div>
-      ))}
+      <div className="user-list">
+        {users.map((user) => (
+          <div key={user.id} className="user-item">
+            <img src={user.image} alt={user.firstName} className="user-image" />
+            <p className="user-name">
+              {user.firstName} {user.lastName}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

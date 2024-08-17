@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
-
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { fetchLoginUser } from "../services/api";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let userStorage = localStorage.getItem("user");
@@ -54,7 +56,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">Blog App</div>
+      <div className="logo"><Link to="/" className="reset-text">Blog App</Link></div>
       <div className="auth-buttons">
         {!user ? (
           <div id="user-login">
@@ -63,7 +65,10 @@ function Navbar() {
         ) : (
           <div className="user-section">
             <img src={user.picture} alt="Profile" className="profile-pic" />
-            <span className="user-name">{user.name}</span>
+            <span className="user-name-nav">{user.name}</span>
+            <button onClick={() => navigate("/users")} className="users-button">
+              Users
+            </button>
             <button onClick={handleLogout} className="logout-button">
               Logout
             </button>
