@@ -4,7 +4,9 @@
 
 Este es un proyecto de aplicación de blog que permite a los usuarios ver publicaciones, filtrar publicaciones por etiquetas, y autenticar usuarios utilizando Google Sign-In. La aplicación muestra una lista de publicaciones con imágenes, títulos, autores y etiquetas. Los usuarios pueden ver los detalles de cada publicación, incluidos los comentarios, y también pueden gestionar su sesión mediante Google.
 
-## Tecnologías Utilizadas-**React 18**: Biblioteca para construir la interfaz de usuario.
+## Tecnologías Utilizadas
+
+-**React 18**: Biblioteca para construir la interfaz de usuario.
 
 -**React Router DOM**: Enrutamiento para aplicaciones React.
 
@@ -18,13 +20,16 @@ Este es un proyecto de aplicación de blog que permite a los usuarios ver public
 
 -**Ninjas API**: Para obtener imágenes.
 
-## Requisitos- Node.js (versión 20.16 o superior)
+## Requisitos
 
+- Node.js (versión 20.16 o superior)
 - npm (gestor de paquetes de Node.js)
 - Una cuenta de Google y credenciales de API para Google Sign-In.
 - Claves API de Ninjas para obtener imágenes.
 
-## Instalación1.**Clona el repositorio:**
+## Instalación
+
+1.**Clona el repositorio:**
 
 ```bash
    git clone https://github.com/juanmabascu997/react-blog-webapp
@@ -62,9 +67,14 @@ Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación en f
 Usa el botón "Login with Google" para autenticarte. Una vez autenticado, el botón de inicio de sesión se reemplaza por un botón de cierre de sesión.
 
 3.**Navegación:**  
- -**Inicio:** Muestra la lista de publicaciones con una vista previa. -**Detalles de la publicación:** Haz clic en una publicación para ver los detalles completos y los comentarios. -**Usuarios:** Consulta la lista de usuarios. -**Filtrado por etiqueta:** Usa el botón de filtro de etiquetas para seleccionar múltiples etiquetas y filtrar las publicaciones en la vista principal.
+
+ -**Inicio:** Muestra la lista de publicaciones con una vista previa. 
+ -**Detalles de la publicación:** Haz clic en una publicación para ver los detalles completos y los comentarios. 
+ -**Usuarios:** Consulta la lista de usuarios. 
+ -**Filtrado por etiqueta:** Usa el botón de filtro de etiquetas para seleccionar múltiples etiquetas y filtrar las publicaciones en la vista principal.
 
 ## Estructura del Proyecto
+
 -**src/** 
 -**components/**: Componentes reutilizables como `Navbar`, `PostItem`, `PostDetail`, etc.
 
@@ -77,7 +87,8 @@ Usa el botón "Login with Google" para autenticarte. Una vez autenticado, el bot
 -**public/** 
 -**index.html**: Archivo HTML principal.
 
-## Enlaces Útiles- [Google Identity Services](https://developers.google.com/identity)
+## Enlaces Útiles
 
+- [Google Identity Services](https://developers.google.com/identity)
 - [Ninjas API](https://api-ninjas.com/)
 - [Auth0](https://auth0.com/)
