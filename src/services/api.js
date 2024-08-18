@@ -59,9 +59,14 @@ export const fetchImg = async () => {
       headers: { 
         'X-Api-Key': `${process.env.REACT_APP_API_NINJAS_CLIENT_ID}`,
         'Accept': 'image/jpg'
-      }
+      },
+      responseType: 'arraybuffer'
     }
   );
+  const base64Image = `data:image/jpeg;base64,${btoa(
+    new Uint8Array(response.data)
+      .reduce((data, byte) => data + String.fromCharCode(byte), '')
+  )}`;
   
-  return response.data;
+  return base64Image;
 };

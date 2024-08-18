@@ -12,14 +12,7 @@ import { BiHome } from "react-icons/bi";
 function PostDetail({ id }) {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
-  const [imgSrc, setImgSrc] = useState(post?.img || "");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = `data:image/jpeg;base64,${post?.img}`;
-    setImgSrc(img.src)
-  }, [post?.img]);
 
   useEffect(() => {
     const fetchPostData = async () => {
@@ -60,7 +53,7 @@ function PostDetail({ id }) {
       <button className="back-to-home-button" onClick={() => navigate("/")}>
         <BiHome />
       </button>
-      <img src={imgSrc} alt={post.title} />
+      <img src={post.img} alt={post.title} />
       <h1>{post.title}</h1>
       <p className="byline">
         by {post.userInfo?.firstName} {post.userInfo?.lastName}

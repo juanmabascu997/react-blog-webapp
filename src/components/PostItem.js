@@ -1,21 +1,12 @@
 import { Link } from "react-router-dom";
 import "./PostItem.css";
 import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
-import { useEffect, useState } from "react";
 
 function PostItem({ classIndex, post }) {
-  const [imgSrc, setImgSrc] = useState(post?.img || "");
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = `data:image/jpeg;base64,${post.img}`;
-    setImgSrc(img.src)
-  }, [post?.img]);
-
   return (
     <div className={"post-item " + classIndex}>
       <img
-        src={imgSrc}
+        src={post.img}
         alt={post.title}
         style={{
           minHeight: "150px",
