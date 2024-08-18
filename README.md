@@ -16,13 +16,13 @@ Este es un proyecto de aplicación de blog que permite a los usuarios ver public
 
 -**Auth0**: Autenticación de usuarios.
 
--**Pexels API**: Para obtener imágenes.
+-**Ninjas API**: Para obtener imágenes.
 
 ## Requisitos- Node.js (versión 20.16 o superior)
 
 - npm (gestor de paquetes de Node.js)
 - Una cuenta de Google y credenciales de API para Google Sign-In.
-- Claves API de Pexels para obtener imágenes.
+- Claves API de Ninjas para obtener imágenes.
 
 ## Instalación1.**Clona el repositorio:**
 
@@ -40,9 +40,11 @@ Este es un proyecto de aplicación de blog que permite a los usuarios ver public
 
 Crea un archivo `.env` en la raíz del proyecto y añade tus variables de entorno:
 `env
+    REACT_APP_API_DUMMY_URL='https://dummyjson.com'
+    REACT_APP_API_NINJAS_URL='https://api.api-ninjas.com/v1'
     REACT_APP_GOOGLE_CLIENT_ID=tu_cliente_id_de_google
-    REACT_APP_PEXELS_API_KEY=tu_clave_de_api_de_pexels
-    API_URL=la_url_de_tu_api`
+    REACT_APP_API_NINJAS_CLIENT_ID=tu_clave_de_api_de_ninjas
+`
 
 4.**Inicia el servidor de desarrollo:**  
  `bash
@@ -77,5 +79,5 @@ Usa el botón "Login with Google" para autenticarte. Una vez autenticado, el bot
 
 ## Enlaces Útiles- [Google Identity Services](https://developers.google.com/identity)
 
-- [Pexels API](https://www.pexels.com/api/)
+- [Ninjas API](https://api-ninjas.com/)
 - [Auth0](https://auth0.com/)

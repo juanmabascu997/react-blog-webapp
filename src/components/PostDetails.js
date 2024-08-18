@@ -12,20 +12,35 @@ import { BiHome } from "react-icons/bi";
 function PostDetail({ id }) {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
+  const [imgSrc, setImgSrc] = useState(post?.img || "");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchPostData = async () => {
-      let postResponse = await fetchPostById(id);
-      let res = await getUserInfo(postResponse.userId);
-      let img =
-        "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200";
+    const img = new Image();
+    img.src = `data:image/jpeg;base64,${post?.img}`;
+    setImgSrc(img.src)
+  }, [post?.img]);
 
-      postResponse = {
-        ...postResponse,
-        userInfo: res,
-        img: img,
-      };
+  useEffect(() => {
+    const fetchPostData = async () => {
+      let postsLocal = JSON.parse(localStorage.getItem('posts'));
+      let postResponse = {};
+
+      if (postsLocal) {
+        postResponse = postsLocal.find((post)=> post.id == id)
+        
+      } else {
+        postResponse = await fetchPostById(id);
+        let res = await getUserInfo(postResponse.userId);
+        let img =
+          `https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200`;
+  
+        postResponse = {
+          ...postResponse,
+          userInfo: res,
+          img: img,
+        };
+      }
 
       const commentsResponse = await fetchCommentsByPostId(id);
       setPost(postResponse);
@@ -45,7 +60,7 @@ function PostDetail({ id }) {
       <button className="back-to-home-button" onClick={() => navigate("/")}>
         <BiHome />
       </button>
-      <img src={post.img} alt={post.title} />
+      <img src={imgSrc} alt={post.title} />
       <h1>{post.title}</h1>
       <p className="byline">
         by {post.userInfo?.firstName} {post.userInfo?.lastName}

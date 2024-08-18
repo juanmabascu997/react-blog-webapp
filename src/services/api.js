@@ -1,13 +1,11 @@
 import axios from 'axios';
 
-const API_DUMMY_URL = 'https://dummyjson.com';
-const API_PEXELS_URL = 'https://api.pexels.com/v1';
 var REACT_APP_DUMMY_API_KEY = null;
 
 axios.defaults.headers.common['app-id'] = REACT_APP_DUMMY_API_KEY;
 
 export const fetchLoginUser = async () => {
-  const res = await axios.post(`${API_DUMMY_URL}/user/login`, 
+  const res = await axios.post(`${process.env.REACT_APP_API_DUMMY_URL}/user/login`, 
     {
       username: 'emilys',
       password: 'emilyspass',
@@ -26,85 +24,44 @@ export const fetchLoginUser = async () => {
 };
 
 export const fetchPosts = async () => {
-  const response = await axios.get(`${API_DUMMY_URL}/posts`,
-    {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${REACT_APP_DUMMY_API_KEY}`
-      }
-    }
-  );
+  const response = await axios.get(`${process.env.REACT_APP_API_DUMMY_URL}/posts`);
   return response.data;
 };
 
 export const fetchPostById = async (id) => {
-  const response = await axios.get(`${API_DUMMY_URL}/posts/${id}`,
-    {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${REACT_APP_DUMMY_API_KEY}`
-      }
-    }
-  );
+  const response = await axios.get(`${process.env.REACT_APP_API_DUMMY_URL}/posts/${id}`);
   return response.data;
 };
 
 export const fetchCommentsByPostId = async (postId) => {
-  const response = await axios.get(`${API_DUMMY_URL}/comments/post/${postId}`,
-    {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${REACT_APP_DUMMY_API_KEY}`
-      }
-    }
-  );
+  const response = await axios.get(`${process.env.REACT_APP_API_DUMMY_URL}/comments/post/${postId}`);
   return response.data;
 };
 
 export const fetchTags = async () => {
-  const response = await axios.get(`${API_DUMMY_URL}/posts/tags`,
-    {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${REACT_APP_DUMMY_API_KEY}`
-      }
-    }
-  );
+  const response = await axios.get(`${process.env.REACT_APP_API_DUMMY_URL}/posts/tags`);
   return response.data;
 };
 
 export const fetchUsers = async () => {
-  const response = await axios.get(`${API_DUMMY_URL}/users`,
-    {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${REACT_APP_DUMMY_API_KEY}`
-      }
-    }
-  );
+  const response = await axios.get(`${process.env.REACT_APP_API_DUMMY_URL}/users`);
   return response.data;
 };
 
 export const fetchUser = async (userId) => {
-  const response = await axios.get(`${API_DUMMY_URL}/users/${userId}`,
-    {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${REACT_APP_DUMMY_API_KEY}`
-      }
-    }
-  );
+  const response = await axios.get(`${process.env.REACT_APP_API_DUMMY_URL}/users/${userId}`);
   return response.data;
 };
 
-export const fetchImg = async (imageId) => {
-  const response = await axios.get(`${API_PEXELS_URL}/photos/2014422`,
+export const fetchImg = async () => {
+  const response = await axios.get(`https://api.api-ninjas.com/v1/randomimage?category=nature`, 
     {
       headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `${process.env.REACT_APP_PEXEL_SECRET_API_KEY}`
+        'X-Api-Key': `${process.env.REACT_APP_API_NINJAS_CLIENT_ID}`,
+        'Accept': 'image/jpg'
       }
     }
   );
+  
   return response.data;
 };

@@ -1,52 +1,84 @@
 .post-item {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 04px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-  }
-  
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 04px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .post-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    object-fit: cover;
-  }
-  
-  .post-item h2 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .post-item p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 10px;
-  }
-  
-  .post-item .tag {
-    display: inline-block;
-    background-color: #eaeaea;
-    color: #555;
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-  }
-  
-  .post-item a {
-    display: inline-block;
-    margin-top: 15px;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .post-itema :hover {
-    text-decoration: underline;
-  }
-  
+.post-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.post-item h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.post-item p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.post-item .tag {
+  display: inline-block;
+  background-color: #eaeaea;
+  color: #555;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.post-item a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-itema :hover {
+  text-decoration: underline;
+}
+
+.post-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.post-reactions {
+  display: flex;
+  gap: 15px;
+}
+
+.post-reactions .likes,
+.post-reactions .dislikes {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.read-more-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}

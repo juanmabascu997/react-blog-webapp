@@ -18,7 +18,7 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    window.google.accounts.id.initialize({
+    window.google?.accounts.id.initialize({
       client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
       callback: handleLoginSuccess,
     });
@@ -26,11 +26,11 @@ function Navbar() {
     const signInButton = document.getElementById("user-login");
 
     if (!user) {
-      window.google.accounts.id.renderButton(
+      window.google?.accounts.id.renderButton(
         document.getElementById("google-sign-in-button"),
         { theme: "outline", size: "medium" }
       );
-      window.google.accounts.id.prompt();
+      window.google?.accounts.id.prompt();
       if (signInButton) {
         signInButton.style.display = "flex";
       }
@@ -52,6 +52,7 @@ function Navbar() {
     setUser(null);
     window.google.accounts.id.disableAutoSelect();
     localStorage.clear("user");
+    localStorage.clear("posts");
   };
 
   return (
